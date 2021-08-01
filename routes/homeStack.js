@@ -1,23 +1,23 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
-import ProfileType from '../components/ProfileType';
-import PhoneInput from '../components/PhoneInput';
-import SelectState from '../components/SelectState';
-import CountryPicker from '../components/CountryPicker';
-import UploadCertificate from '../components/UploadCertificate';
-import CountryPicker2 from '../components/CountryPicker2';
-import EditProfileScreen from '../components/EditProfileScreen';
+// import { createStackNavigator } from 'react-navigation-stack';
+// import { createAppContainer } from 'react-navigation';
+// import ProfileType from '../screens/ProfileType';
+// import PhoneInput from '../screens/PhoneInput';
+// import SelectState from '../screens/SelectState';
+// import CountryPicker from '../screens/CountryPicker';
+// import UploadCertificate from '../screens/UploadCertificate';
+// import CountryPicker2 from '../screens/CountryPicker2';
+// import EditProfileScreen from '../components/EditProfileScreen';
 
-const screens = {
-        PhoneInput:  PhoneInput,
-        ProfileType: ProfileType,
-        SelectState: SelectState,
-        CountryPicker: CountryPicker,
-        UploadCertificate: UploadCertificate,
-        CountryPicker2: CountryPicker2,
-        EditProfileScreen: EditProfileScreen
+// const screens = {
+//         PhoneInput:  PhoneInput,
+//         ProfileType: ProfileType,
+//         SelectState: SelectState,
+//         CountryPicker: CountryPicker,
+//         UploadCertificate: UploadCertificate,
+//         CountryPicker2: CountryPicker2,
+//         EditProfileScreen: EditProfileScreen
     
-}
-const HomeStack = createStackNavigator(screens);
+// }
+// const HomeStack = createStackNavigator(screens);
 
-export default createAppContainer(HomeStack)
+// export default createAppContainer(HomeStack)

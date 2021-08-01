@@ -14,6 +14,7 @@ import {
   DarkTheme as NavigationDarkTheme
 } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Navigator from './routes/homeStack';
 
 import { 
   Provider as PaperProvider, 
@@ -175,6 +176,7 @@ const App = () => {
         </Drawer.Navigator>
       )
     :
+        // <Navigator/>
       <RootStackScreen/>
     }
     </NavigationContainer>

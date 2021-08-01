@@ -16,10 +16,12 @@ import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Progress from 'react-native-progress';
- 
+import {useTheme} from 'react-native-paper'; 
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-const SignUpScreen = ({navigation}) => {
+const SignUpScreen2 = ({navigation}) => {
+    const {colors} = useTheme()
 
     const [data, setData] = React.useState({
         username: '',
@@ -81,10 +83,10 @@ const SignUpScreen = ({navigation}) => {
         <View style={styles.header}>
             <Text style={{marginTop:100}}>Create your Profile</Text>
     
-            <Progress.Bar progress={0.3} width={350} height={13} color='#E66950'/>
+            <Progress.Bar progress={0.6} width={350} height={13} color='#E66950'/>
             <ScrollView>
           
-            <Text style={styles.text_footer}>Username</Text>
+            <Text style={[styles.text_footer, {marginTop: 35}]}>First Name</Text>
             <View style={styles.action}>
                 <FontAwesome 
                     name="user-o"
@@ -92,7 +94,60 @@ const SignUpScreen = ({navigation}) => {
                     size={20}
                 />
                 <TextInput 
-                    placeholder="Your Username"
+                    placeholder="First Name"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    onChangeText={(val) => textInputChange(val)}
+                />
+                {data.check_textInputChange ? 
+                <Animatable.View
+                    animation="bounceIn"
+                >
+                    <Feather 
+                        name="check-circle"
+                        color="green"
+                        size={20}
+                    />
+                </Animatable.View>
+                : null}
+            </View>
+            <View style={styles.action}>
+          <FontAwesome name="user-o" color={colors.text} size={20} />
+          <TextInput
+            placeholder="First Name"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <Icon name="map-marker-outline" color={colors.text} size={20} />
+          <TextInput
+            placeholder="City"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+            <Text style={[styles.text_footer, {marginTop: 35}]}>Last Name</Text>
+            <View style={styles.action}>
+                <FontAwesome 
+                    name="user-o"
+                    color="#05375a"
+                    size={20}
+                />
+                <TextInput 
+                    placeholder="Last Name"
                     style={styles.textInput}
                     autoCapitalize="none"
                     onChangeText={(val) => textInputChange(val)}
@@ -110,75 +165,8 @@ const SignUpScreen = ({navigation}) => {
                 : null}
             </View>
 
-            <Text style={[styles.text_footer, {
-                marginTop: 35
-            }]}>Password</Text>
-            <View style={styles.action}>
-                <Feather 
-                    name="lock"
-                    color="#05375a"
-                    size={20}
-                />
-                <TextInput 
-                    placeholder="Your Password"
-                    secureTextEntry={data.secureTextEntry ? true : false}
-                    style={styles.textInput}
-                    autoCapitalize="none"
-                    onChangeText={(val) => handlePasswordChange(val)}
-                />
-                <TouchableOpacity
-                    onPress={updateSecureTextEntry}
-                >
-                    {data.secureTextEntry ? 
-                    <Feather 
-                        name="eye-off"
-                        color="grey"
-                        size={20}
-                    />
-                    :
-                    <Feather 
-                        name="eye"
-                        color="grey"
-                        size={20}
-                    />
-                    }
-                </TouchableOpacity>
-            </View>
 
-            <Text style={[styles.text_footer, {
-                marginTop: 35
-            }]}>Confirm Password</Text>
-            <View style={styles.action}>
-                <Feather 
-                    name="lock"
-                    color="#05375a"
-                    size={20}
-                />
-                <TextInput 
-                    placeholder="Confirm Your Password"
-                    secureTextEntry={data.confirm_secureTextEntry ? true : false}
-                    style={styles.textInput}
-                    autoCapitalize="none"
-                    onChangeText={(val) => handleConfirmPasswordChange(val)}
-                />
-                <TouchableOpacity
-                    onPress={updateConfirmSecureTextEntry}
-                >
-                    {data.secureTextEntry ? 
-                    <Feather 
-                        name="eye-off"
-                        color="grey"
-                        size={20}
-                    />
-                    :
-                    <Feather 
-                        name="eye"
-                        color="grey"
-                        size={20}
-                    />
-                    }
-                </TouchableOpacity>
-            </View>
+            
             
             <View style={styles.textPrivate}>
                 <Text style={styles.color_textPrivate}>
@@ -192,7 +180,7 @@ const SignUpScreen = ({navigation}) => {
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => navigation.navigate('SignUpScreen2')}
+                    onPress={() => navigation.navigate('UploadCertificate')}
                 >
                 <LinearGradient
                     colors={['#EE6950', '#EE9834']}
@@ -214,7 +202,7 @@ const SignUpScreen = ({navigation}) => {
                 >
                     <Text style={[styles.textSign, {
                         color: '#FF6347'
-                    }]}>Sign In</Text>
+                    }]}>Previous</Text>
                 </TouchableOpacity>
             </View>
             </ScrollView>
@@ -361,7 +349,7 @@ const SignUpScreen = ({navigation}) => {
     );
 };
 
-export default SignUpScreen;
+export default SignUpScreen2;
 
 const styles = StyleSheet.create({
     container: {

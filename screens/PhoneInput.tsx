@@ -87,7 +87,7 @@ const Phone = ( {navigation}) => {
           <TouchableOpacity 
             style={styles.button}
             onPress={() => {
-                navigation.navigate('ProfileType');
+              navigation.navigate('SignInScreen');
             }}>
                 <Text style={styles.buttonText}>Start</Text>
 
